@@ -1,3 +1,4 @@
+import { notFound } from 'next/navigation';
 
 
 interface Props {
@@ -12,6 +13,12 @@ interface Props {
 export default async function ( { params }: Props ) {
 
   const { id } = await params;
+
+  if(id === 'kids'){
+    notFound()
+  }
+
+
 
   return (
     <div>

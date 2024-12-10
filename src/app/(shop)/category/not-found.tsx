@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import { PageNotFound } from '@/components';
 
 
 
@@ -7,9 +7,6 @@ export default function () {
 
 
   return (
-    <div>
-      <h1>404 not found</h1>
-      <Link href='/' >Regresar</Link>
-    </div>
+    <PageNotFound />
   );
 }
