@@ -2,7 +2,7 @@ import { ProductGrid, Title } from '@/components';
 import { initialData } from '@/seed/seed';
 
 
-import products = initialData.products
+const  products = initialData.products
 
 
 export default function Home() {
