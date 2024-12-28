@@ -29,9 +29,11 @@ export default async function ( { params }: Props ) {
   }
 
 
-  if(id !== 'men'||'women'||'kid'){
-    notFound()
+  if(id !== Object.keys(labels).find(key => key === id)){
+    return notFound()
   }
+
+
 
 
 
