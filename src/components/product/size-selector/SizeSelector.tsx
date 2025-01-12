@@ -18,7 +18,7 @@ export const SizeSelector = ( { availableSizes, selectedSize }: Props ) => {
           availableSizes.map( ( size ) => (
             <button
               key={ size }
-              className={`mx-2 hover:underline text-lg  ${size === selectedSize&&'underline'} `}
+              className={`mx-2 hover:underline text-lg  ${size === selectedSize&&'underline'} `} 
             >
               { size }
             </button>
