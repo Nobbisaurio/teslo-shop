@@ -1,12 +1,14 @@
 import type { Sizes } from '@/interfaces';
 
 interface Props {
-  selectedSize: Sizes;
+  selectedSize?: Sizes;
   availableSizes: Sizes[];
+
+  onSelectSize: ( size: Sizes ) => void;
 }
 
 
-export const SizeSelector = ( { availableSizes, selectedSize }: Props ) => {
+export const SizeSelector = ( { availableSizes, selectedSize,onSelectSize }: Props ) => {
   return (
     <div className='my-5'>
       <h3 className='font-bold mb-4'>Tallas disponibles</h3>
@@ -19,6 +21,7 @@ export const SizeSelector = ( { availableSizes, selectedSize }: Props ) => {
             <button
               key={ size }
               className={`mx-2 hover:underline text-lg  ${size === selectedSize&&'underline'} `} 
+              onClick={()=>onSelectSize(size)}
             >
               { size }
             </button>

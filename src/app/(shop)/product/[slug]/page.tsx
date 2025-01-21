@@ -6,6 +6,7 @@ import { ProductMobileSlideShow, ProductSlideShow, QuantitySelector, SizeSelecto
 import { titleFont } from '@/config/fonts';
 import { Metadata, ResolvingMetadata } from 'next';
 import { notFound } from 'next/navigation';
+import { AddToCart } from './ui/AddToCart';
 
 interface Props {
   params: Promise<{
@@ -46,7 +47,6 @@ export default async function ( { params }: Props ) {
 
   const { slug } = await params;
   const product = await getProductBySlug( slug );
-  console.log( !product );
 
   if ( !product ) return notFound();
 
@@ -84,25 +84,9 @@ export default async function ( { params }: Props ) {
         </h1>
         <p className='text-lg mb-5'>{ product.price }</p>
 
-        {/* selector de tallas  */ }
 
-        <SizeSelector
-          selectedSize={ product.sizes[ 0 ] }
-          availableSizes={ product.sizes }
-        />
-
-        {/* selector de cantidad */ }
-
-        <QuantitySelector
-          selectedQuantity={ 1 }
-          availableQuantity={ 5 }
-        />
-
-        {/* boton agregar al carrito */ }
-
-        <button className='btn-primary my-5'>
-          Agregar al carrito
-        </button>
+        {/* selector de tallas, cantidad, boton agregar */}
+        <AddToCart product={product} />
 
         {/* Descripcion */ }
         <h3 className='font-bold text-sm'>Descripcion</h3>
