@@ -1,16 +1,21 @@
 import { initialData } from './seed';
 import { prisma } from '../lib/prisma';
-import { url } from 'inspector';
 
 async function main() {
 
   //1. borrar registros previos de la base de datos
   // await Promise.all( [
+    await prisma.user.deleteMany();
     await prisma.productImage.deleteMany();
     await prisma.product.deleteMany();
     await prisma.category.deleteMany();
 
   // ] );
+
+  await prisma.user.createMany({
+    data: initialData.users
+  })
+
 
   //2. insertar categorias
 

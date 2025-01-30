@@ -29,7 +29,7 @@ export const OrderSummary = () => {
       <h2 className='text-2xl mb-2'>Resumen de orden</h2>
       <div className='grid grid-cols-2'>
         <span>No. Productos</span>
-        <span className='text-right'>{ itemsInCart === 1 ? ' Articulo' : ' Articulos' }</span>
+        <span className='text-right'>{ itemsInCart === 1 ? `${itemsInCart} Articulo` : ` ${itemsInCart} Articulos` }</span>
 
         <span>Subtotal</span>
         <span className='text-right'>{ currencyFormater(subTotal)  }</span>
