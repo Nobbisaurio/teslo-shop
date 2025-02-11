@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
 import "./globals.css";
 import { inter } from '@/config/fonts';
 import { Provider } from '@/components';
@@ -14,7 +13,7 @@ export const metadata: Metadata = {
   description: "Una tienda virtual de productos",
 };
 
-export default function RootLayout( {
+export default async function RootLayout( {
   children,
 }: Readonly<{
   children: React.ReactNode;

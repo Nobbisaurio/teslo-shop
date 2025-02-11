@@ -8,14 +8,12 @@ import { IoWarningOutline } from 'react-icons/io5';
 
 export const LoginForm = () => {
 
-
   const searchParams = useSearchParams();
   const callbackUrl = searchParams.get( 'callbackUrl' ) || '/';
   const [ errorMessage, formAction, isPending ] = useActionState(
     authenticate,
     undefined,
   );
-
 
 
 
