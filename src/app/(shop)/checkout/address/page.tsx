@@ -11,7 +11,6 @@ export default async function () {
 
   const userAddressDB  = await getUserAddress(user?.user.id!); 
 
-  console.log(userAddressDB);
 
 
   return (

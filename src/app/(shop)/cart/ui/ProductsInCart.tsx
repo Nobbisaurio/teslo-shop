@@ -5,6 +5,7 @@ import { useCartStore } from '@/store/cart/cart-store';
 import Image from 'next/image';
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
+import { useEffect, useState } from 'react';
 
 
 
@@ -12,11 +13,19 @@ import { redirect } from 'next/navigation';
 
 export const ProductsInCart = () => {
 
+  const [ loaded, setLoaded ] = useState( false );
+
+
   const productsInCart = useCartStore( state => state.cart );
   const updatedProductQuentity = useCartStore( state => state.updateProductQuantityInCart );
   const removeProduct = useCartStore( state => state.removeProductInCart );
 
-  if( productsInCart.length === 0 ) redirect( '/empty' );
+  useEffect( () => {
+    setLoaded( true );
+  }, [] );
+
+
+  if ( productsInCart.length === 0 && loaded ) redirect( '/empty' );
 
 
   return (

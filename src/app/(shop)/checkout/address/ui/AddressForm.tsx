@@ -5,6 +5,7 @@ import { useAddressStore } from '@/store/address/address-store';
 import { useForm } from 'react-hook-form';
 import { useEffect } from 'react';
 import {  removeAddress, setUserAddress } from '@/actions';
+import { redirect } from 'next/navigation';
 
 type FormInputs = {
   firstName: string;
@@ -50,15 +51,17 @@ export const AddressForm =  ( { countries,userId,userAddress={} }: Props ) => {
 
 
   const onSubmit = ( data: FormInputs ) => {
-    setAddress( data );
-
     const { rememberAddress, ...restAddress } = data;
+    
+    setAddress( restAddress );
+
 
     if ( data.rememberAddress ) {
       setUserAddress( restAddress, userId );
     } else {
       removeAddress( userId );
     }
+    redirect( '/checkout' );
   };
 
 
