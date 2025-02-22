@@ -23,9 +23,10 @@ export const ProductsInCart = () => {
   useEffect( () => {
     setLoaded( true );
   }, [] );
-
-
+  
   if ( productsInCart.length === 0 && loaded ) redirect( '/empty' );
+
+
 
 
   return (

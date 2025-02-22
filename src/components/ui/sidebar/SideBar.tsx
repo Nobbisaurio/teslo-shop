@@ -105,8 +105,9 @@ export const SideBar = () => {
               </Link>
 
               <Link
-                href='/'
+                href='/orders'
                 className='flex items-center mt-10 p-2 hover:bg-gray-100 rounded transition-all '
+                onClick={ toggleSidebar }
               >
                 <IoTicketOutline
                   size={ 30 }
@@ -174,7 +175,7 @@ export const SideBar = () => {
 
 
               <Link
-                href='/'
+                href='/orders'
                 className='flex items-center mt-10 p-2 hover:bg-gray-100 rounded transition-all '
               >
                 <IoTicketOutline
