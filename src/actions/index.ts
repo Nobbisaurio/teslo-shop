@@ -8,6 +8,8 @@ export  * from './address/setUserAddress';
 export  * from './address/removeAddress';
 export  * from './address/getUserAddress';
 export  * from './order/placeOrder';
+export  * from './order/setPaypalOrderId';
+export  * from './order/paypalCheckPayments';
 
 export  * from './product/product-pagination';
 export  * from './product/get-product-by-slug';

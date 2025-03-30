@@ -1,5 +1,5 @@
 import { getOrderById } from '@/actions/order/getOrderById';
-import { Title } from '@/components';
+import { PaypalButtons, Title } from '@/components';
 import { initialData } from '@/seed/seed';
 import Image from 'next/image';
 import { IoCardOutline } from 'react-icons/io5';
@@ -47,7 +47,7 @@ export default async function ( { params }: Props ) {
 
 
   return (
-    <div className='flex justify-center items-center mb-72 px-10 sm:px-0'>
+    <div className='flex justify-center items-center mb-32 px-10 sm:px-0'>
 
       <div className='flex flex-col w-[1000] '>
         <Title
@@ -121,7 +121,7 @@ export default async function ( { params }: Props ) {
 
 
             <h2 className='text-2xl mb-2'>Resumen de orden</h2>
-            <div className='grid grid-cols-2'>
+            <div className='grid grid-cols-2 mb-6'>
               <span>No. Productos</span>
               <span className='text-right'>{ order?.itemsInOrder } { ( order!.itemsInOrder > 1 ) ? 'Articulos' : 'Articulo' }</span>
 
@@ -135,20 +135,11 @@ export default async function ( { params }: Props ) {
               <span className='text-right text-2xl mt-5'>{ currencyFormater( order!.total ) }</span>
             </div>
 
-            <div className={ ` mt-6 flex items-center rounded-lg py-2 px-3.5 text-xs font-bold text-white mb-5 ${ order?.isPaid ? 'bg-green-700' : 'bg-red-500' } ` }>
-              <IoCardOutline size={ 30 } />
-              {
-                !order?.isPaid
-                  ? (
-                    <span className='mx-2'>Prendiente de pago</span>
-
-                  )
-                  : (
-                    <span className='mx-2'>Orden pagada</span>
-
-                  )
-              }
-            </div>
+            
+             <PaypalButtons
+              amount={ order!.total }
+              orderId={ order!.id }
+             />
 
           </div>
 

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { inter } from '@/config/fonts';
-import { Provider } from '@/components';
+import { Providers } from '@/components';
 
 
 
@@ -23,9 +23,9 @@ export default async function RootLayout( {
       <body
         className={ inter.className }
       >
-        <Provider>
+        <Providers>
           { children }
-        </Provider>
+        </Providers>
         
       </body>
     </html>
